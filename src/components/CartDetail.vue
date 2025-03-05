@@ -31,8 +31,9 @@
             </div>
         </div>
         <div class="flex justify-center justify-self-end">
-            <RouterLink :to="{name: 'cart'}" >
-                <TheButton label="To Cart" filled/>
+            <RouterLink :to="{name: 'cart'}" class="py-1 px-4 border-blue-500 text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-400 active:border-blue-400">
+                To cart
+                <!-- <TheButton label="To Cart" filled /> -->
             </RouterLink>
         </div>
     </div>

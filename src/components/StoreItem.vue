@@ -5,7 +5,7 @@
         </div>
         <div>{{ item?.name }}</div>
         <div>{{ item?.price }},-</div>
-        <div class="flex flex-col w-full justify-center">
+        <div class="flex flex-col w-full justify-center max-w-32">
             <div 
                 v-if="showQuantityControls" 
                 class="flex justify-between items-center"
@@ -15,7 +15,7 @@
                     @on-click="$emit('decreaseClicked', item)"
                     onkeyup
                 />
-                <div>0</div>
+                <div>{{ quantity }}</div>
                 <TheButton 
                     label="+"
                     @on-click="$emit('addClicked', item)"
@@ -40,12 +40,21 @@ import type { StoreItem } from '@/types/types';
 import type { PropType } from 'vue';
 import TheButton from './TheButton.vue';
 
-defineProps({
+const props = defineProps({
     item: Object as PropType<StoreItem>,
     showQuantityControls: {
         type: Boolean,
         required: false,
         default: false
+    },
+    quantity: {
+        type: Number,
+        // validator (v: number): boolean {
+        //     if (this.showQuantityControls && !v) {
+        //         return false
+        //     }
+        //     return true
+        // }
     }
 })
 
